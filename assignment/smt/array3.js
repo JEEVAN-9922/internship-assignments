@@ -1,0 +1,65 @@
+// Program 1: Create array from 1 to 5
+let arr1 = [];
+let i1 = 1;
+do {
+    arr1.push(i1);
+    i1++;
+} while (i1 <= 5);
+console.log("Program 1:", arr1);
+
+// Program 2: Create even numbers array
+let arr2 = [];
+let i2 = 2;
+do {
+    arr2.push(i2);
+    i2 += 2;
+} while (i2 <= 10);
+console.log("Program 2:", arr2);
+
+// Program 3: Create odd numbers array
+let arr3 = [];
+let i3 = 1;
+do {
+    arr3.push(i3);
+    i3 += 2;
+} while (i3 <= 9);
+console.log("Program 3:", arr3);
+
+// Program 4: Create square of numbers
+let arr4 = [];
+let i4 = 1;
+do {
+    arr4.push(i4 * i4);
+    i4++;
+} while (i4 <= 5);
+console.log("Program 4:", arr4);
+
+// Program 5: Create array in reverse order
+let arr5 = [];
+let i5 = 5;
+do {
+    arr5.push(i5);
+    i5--;
+} while (i5 >= 1);
+console.log("Program 5:", arr5);
+
+// Program 6: Create array of multiples of 3
+let arr6 = [];
+let i6 = 1;
+do {
+    arr6.push(i6 * 3);
+    i6++;
+} while (i6 <= 5);
+console.log("Program 6:", arr6);
+
+// Program 7: Create array using function + do-while loop
+function createArrayDoWhile(n) {
+    let arr = [];
+    let i = 1;
+    do {
+        arr.push(i);
+        i++;
+    } while (i <= n);
+    return arr;
+}
+console.log("Program 7:", createArrayDoWhile(5));
