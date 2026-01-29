@@ -1,0 +1,33 @@
+import React from 'react'
+import './App.css'
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+}
+
+.app {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  min-height: 100vh;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #3a86ff, #fb5607);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #a8adc7;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
