@@ -1,0 +1,131 @@
+1. Architecture of V8 Engine
+
+The V8 Engine is Google’s high-performance JavaScript engine, written in C++, and used in Google Chrome and Node.js. Its main job is to execute JavaScript code efficiently.
+
+Key Components of V8 Architecture:
+Parser
+Converts JavaScript code into an Abstract Syntax Tree (AST).
+Checks syntax and structure of the code.
+
+Example:
+let x = 10;
+is parsed into tokens and then into AST.
+Ignition (Interpreter)
+Converts AST into bytecode.
+Executes bytecode line by line.
+Starts execution quickly (fast startup).
+TurboFan (Optimizing Compiler)
+Optimizes frequently executed code (hot code).
+Converts bytecode into machine code.
+Improves performance by removing unnecessary checks.
+Garbage Collector
+Manages memory automatically.
+Removes unused objects to prevent memory leaks.
+Uses techniques like Mark & Sweep and Generational GC.
+Heap and Stack
+Heap: Stores objects, functions, closures.
+Stack: Stores execution contexts and function calls.
+Working Flow of V8:
+JavaScript Code → Parser → AST → Ignition (Bytecode) → TurboFan (Optimized Machine Code)
+
+Advantages of V8
+Very fast execution
+JIT (Just-In-Time) compilation
+Efficient memory management
+Conclusion:
+V8 makes JavaScript fast enough to run large applications, servers, and even operating systems.
+
+2. How Asynchronous Works in JavaScript
+JavaScript is single-threaded, meaning it can execute only one task at a time. Still, it handles asynchronous operations efficiently using the Event Loop.
+
+Key Concepts:
+Call Stack
+Executes synchronous code.
+Follows LIFO (Last In First Out).
+Web APIs
+Provided by the browser.
+Handle async tasks like:
+setTimeout
+fetch
+DOM events
+Callback Queue
+Stores callbacks from Web APIs.
+Example: setTimeout.
+Microtask Queue
+Stores Promises and async/await.
+Has higher priority than callback queue.
+Event Loop
+Continuously checks:
+Is call stack empty?
+If yes, moves tasks from queue to stack.
+
+Example:
+console.log("Start");
+setTimeout(() => {
+  console.log("Timeout");
+}, 0);
+Promise.resolve().then(() => {
+  console.log("Promise");
+});
+console.log("End");
+
+Output:
+Start
+End
+Promise
+Timeout
+
+Why?
+Promise goes to microtask queue
+setTimeout goes to callback queue
+Microtasks execute first
+Conclusion:
+Asynchronous JavaScript allows non-blocking behavior using Event Loop, making applications fast and responsive.
+
+3. Difference Between Spread Operator and Rest Operator
+Both Spread (...) and Rest (...) use the same syntax but have different purposes.
+Spread Operator (...)
+Used to expand elements.
+Use Cases:
+Copy arrays
+let arr1 = [1, 2];
+let arr2 = [...arr1, 3];
+
+Merge arrays
+let a = [1];
+let b = [2];
+let c = [...a, ...b];
+
+
+Copy objects
+
+let obj = { a: 1 };
+let newObj = { ...obj, b: 2 };
+
+Rest Operator (...)
+
+Used to collect elements into an array.
+
+Use Cases:
+Function parameters
+function sum(...numbers) {
+  return numbers.reduce((a, b) => a + b);
+}
+
+
+Destructuring
+
+let [a, ...rest] = [1, 2, 3];
+
+Key Differences:
+Spread	Rest
+Expands values	Collects values
+Used while calling	Used in function definition
+Used on right side	Used on left side
+
+Conclusion:
+
+Spread → breaks data
+
+Rest → collects data
+Both improve code readability and flexibility.
